@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			
+			context.save();//保存当前图形的所有状态
+			context.fillStyle='red';
+			context.translate(100,100);
+			context.fillRect(0,0,300,300);
+			//context.translate(-100,-100);
+			context.restore();
+			
+			context.save();
+			context.fillStyle='blue';
+			context.translate(200,200);
+			context.fillRect(0,0,300,300);
+			context.restore();
+		</script>
+	</body>
+</html>

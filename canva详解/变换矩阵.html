@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			/*
+			 a c e     a水平缩放（1）
+			 b d f	   b水平倾斜（0）
+			 0 0 1	   c垂直倾斜（0）
+			 		   d垂直缩放（1）
+			 		   e水平位移（0）
+			 		   f垂直位移（0）
+			 		   
+			设置变换矩阵：
+			   transform(a,b,c,d,e,f)
+			   setTransform(a,b,c,d,e,f)
+			 * */
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			
+			context.fillStyle='red';
+			context.strokeStyle='#058';
+			context.lineWidth=5;
+			
+			context.save();
+			context.transform(1,0,0,1,50,100);
+			context.transform(1.5,0,0,2,0,0);
+			context.transform(1,-0.2,-0.2,1,0,0);
+			//context.setTransform(1,0,0,1,100,100)//忽略前面所有的transform值
+			context.fillRect(50,50,200,200);//控制填充
+			context.strokeRect(50,50,200,200);//控制描边
+			context.restore();
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				margin: 0 auto;
+				border: 1px solid #AAAAAA;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			//lineJoin  miter(default)默认值
+			           //bevel 斜接的效果
+			           //round 圆角的效果
+			
+			context.lineWidth=10;
+			context.lineJoin='miter';
+			context.miterLimit=50;//miterLimit默认值是10
+			drawStar(context,200,15,300,300,20)
+			     //参数：context,大圆半径，小圆半径，x轴方向偏移量，y轴方向偏移量，旋转角度
+			
+			function drawStar(ext,R,r,x,y,rot){
+				ext.beginPath();
+				for (var i=0;i<5;i++) {
+				ext.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+							  -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+				ext.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+				              -Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+				}
+				ext.closePath();
+				ext.stroke();
+			}
+		</script>
+	</body>
+</html>

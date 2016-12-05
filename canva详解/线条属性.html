@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #aaa;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			/*
+			 lineCap
+			   butt(default);默认值
+			   round;
+			   square;
+			 * */
+			
+			context.lineWidth=30;
+			context.strokeStyle='#005588';
+			
+			context.beginPath();
+			context.moveTo(100,200);
+			context.lineTo(500,200);
+			context.lineCap='butt';
+			context.stroke();
+			
+			context.beginPath();
+			context.moveTo(100,300);
+			context.lineTo(500,300);
+			context.lineCap='round';
+			context.stroke();
+			
+			context.beginPath();
+			context.moveTo(100,400);
+			context.lineTo(500,400);
+			context.lineCap='square';
+			context.stroke();
+			
+			context.beginPath();
+			context.moveTo(100,100);
+			context.lineTo(100,500);
+			context.lineWidth=5;
+			context.strokeStyle='red'
+			context.stroke();
+			
+			context.beginPath();
+			context.moveTo(500,100);
+			context.lineTo(500,500);
+			context.lineWidth=5;
+			context.strokeStyle='red'
+			context.stroke();
+		</script>
+	</body>
+</html>

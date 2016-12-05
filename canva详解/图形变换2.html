@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			context.linWidth=5;
+			
+			context.save();
+			context.scale(1,1);//缩放
+			context.strokeRect(50,50,100,100);
+			context.restore();
+			
+			context.save();
+			context.scale(2,2);//缩放
+			context.strokeRect(50,50,100,100);
+			context.restore();
+			
+			context.save();
+			context.scale(3,3);//缩放
+			context.strokeRect(50,50,100,100);//描边矩形
+			context.restore();
+		</script>
+	</body>
+</html>

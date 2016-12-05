@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			//console.log(-Math.sin(18/180*Math.PI)*300)
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			var context=canvas.getContext('2d');
+			
+			
+			context.lineWidth=10;
+			drawStar(context,200,100,300,300,20)
+			     //参数：context,大圆半径，小圆半径，x轴方向偏移量，y轴方向偏移量，旋转角度
+			
+			function drawStar(ext,R,r,x,y,rot){
+				ext.beginPath();
+				for (var i=0;i<5;i++) {
+				ext.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+							  -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+				ext.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+				              -Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+				}
+				ext.closePath();
+				ext.stroke();
+			}
+		</script>
+	</body>
+</html>

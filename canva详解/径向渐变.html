@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			var context=canvas.getContext('2d');
+			/*
+			 Radial Gradient径向渐变-放射性渐变
+			 Step1
+			  var grd=context.createRadialGradient(x0,y0,r0,x1,y1,r1);
+			  
+			Step2
+			 grd.addColorStop(stop,color);
+	
+			 * */
+			var linearGrad=context.createRadialGradient(300,300,10,300,300,300);
+			linearGrad.addColorStop(0.0,'white');
+			linearGrad.addColorStop(0.25,'yellow');
+			linearGrad.addColorStop(0.5,'green');
+			linearGrad.addColorStop(0.75,'blue');
+			linearGrad.addColorStop(1.0,'#000');
+			context.fillStyle=linearGrad;
+			context.fillRect(0,0,600,600)
+		</script>
+	</body>
+</html>

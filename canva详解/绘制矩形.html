@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#canvas{
+				display: block;
+				border: 1px solid #aaa;
+				margin:0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			
+			canvas.width=800;
+			canvas.height=800;
+			
+			var context=canvas.getContext('2d');
+			
+			drawRect(context,100,100,400,400,10,'#058','red');
+			drawRect2(context,200,200,400,400,10,'#058','yellow');
+			
+			function drawRect(ext,x,y,width,height,borderWidth,borderColor,fillColor){
+				ext.beginPath();
+				//ext.moveTo(x,y);
+				//ext.lineTo(x+width,y);
+				//ext.lineTo(x+width,y+height);
+				//ext.lineTo(x,y+height);
+				ext.rect(x,y,width,height);
+				ext.closePath();
+				
+				ext.lineWidth=borderWidth;
+				ext.fillStyle=fillColor;
+				ext.strokeStyle=borderColor;
+				
+				ext.fill();
+				ext.stroke();
+			}
+			
+			function drawRect2(ext,x,y,width,height,borderWidth,borderColor,fillColor){
+				ext.lineWidth=borderWidth;
+				ext.fillStyle=fillColor;
+				ext.strokeStyle=borderColor;
+				
+				ext.fillRect(x,y,width,height);
+				ext.strokeRect(x,y,width,height);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				margin: 0 auto;
+				border: 1px solid #AAAAAA;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" ></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			/*
+			 fillStyle:填充样式
+			 	Step 1
+			 	 渐变线：
+			 	 var grd=context.createLinearGradiend(xstart,ystart,xend,yend);
+			 	Step 2
+			 		grd.addColorStop(stop,color);
+			 	
+			 * */
+			//var linearGrad=context.createLinearGradient(0,0,600,600);//倾斜的渐变线
+			//var linearGrad=context.createLinearGradient(0,0,600,0);//水平的渐变
+			var linearGrad=context.createLinearGradient(0,0,0,600);//垂直渐变线
+			linearGrad.addColorStop(0.0,'white');
+			linearGrad.addColorStop(0.25,'yellow');
+			linearGrad.addColorStop(0.5,'green');
+			linearGrad.addColorStop(0.75,'blue');
+			linearGrad.addColorStop(1.0,'#000');
+			context.fillStyle=linearGrad;
+			context.fillRect(0,0,600,600)
+		</script>
+	</body>
+</html>

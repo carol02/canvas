@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				margin: 0 auto;
+				border: 1px solid #AAAAAA;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=600;
+			canvas.height=600;
+			
+			var context=canvas.getContext('2d');
+			
+			context.lineWidth=10;
+			drawSix(context,200,300,300,-20)
+			
+			
+			function drawSix(ext,r,x,y,rot){
+				ext.beginPath();
+				for (var i=0;i<5;i++) {
+					ext.lineTo(Math.cos((72+i*72-rot)/180*Math.PI)*r+x,
+								-Math.sin((72+i*72-rot)/180*Math.PI)*r+y);
+				}
+				ext.closePath();
+				ext.stroke();
+			}
+		</script>
+	</body>
+</html>

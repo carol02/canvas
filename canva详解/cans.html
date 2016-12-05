@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#canvas{
+				display: block;
+				border: 1px solid #aaa;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			var context=canvas.getContext('2d');
+			
+			canvas.width=800;
+			canvas.height=800;
+			context.lineWidth=10;
+			
+			context.beginPath();
+			//context.moveTo(100,200);
+			context.lineTo(100,200);
+			context.lineTo(300,400);
+			context.lineTo(100,600);
+			context.strokeStyle='red';
+			context.stroke();
+			
+			context.beginPath();
+			//context.moveTo(300,200);
+			context.lineTo(300,200);
+			context.lineTo(500,400);
+			context.lineTo(300,600);
+			context.strokeStyle='yellow';
+			context.stroke();
+			
+			context.beginPath();
+			//context.moveTo(500,200);
+			context.lineTo(500,200);
+			context.lineTo(700,400);
+			context.lineTo(500,600);
+			context.strokeStyle='blue';
+			context.stroke();
+		</script>
+	</body>
+</html>

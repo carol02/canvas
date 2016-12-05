@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas=document.getElementById('canvas');
+			canvas.width=1000;
+			canvas.height=600;
+			var context=canvas.getContext('2d');
+			/*
+			  createPattern(img,repeat-style)填充图片
+			  repeat-style:no-repeat
+			  			   repeat-X
+			  			   repeat-y
+			  			   repeat
+			  
+			  createPattern(canvas,repeat-style)填充canva画布
+			 * */
+			/*var backgroundImage=new Image();
+			backgroundImage.src='5.jpg';
+			backgroundImage.onload=function(){
+				var pattern=context.createPattern(backgroundImage,'no-repeat');
+				context.fillStyle=pattern;
+				context.fillRect(0,0,1000,600);
+			}*/
+			
+			var backCanvas=createBackgroundCanvas();
+			var pattern=context.createPattern(backCanvas,'repeat');
+			context.fillStyle=pattern;
+			context.fillRect(0,0,600,600);
+			
+			function createBackgroundCanvas(){
+				var backCanvas=document.createElement('canvas');
+				backCanvas.width=100;
+				backCanvas.height=100;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#canvas{
+				display: block;
+				border: 1px solid #AAAAAA;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" ></canvas>
+		<script type="text/javascript">
+		/*
+		 图形变换
+		 	位移translate(x,y)
+		 	旋转rotate(deg)
+		 	缩放scale(sx,sy)
+		 * */
+			var canvas=document.getElementById('canvas');
+			canvas.width=1000;
+			canvas.height=600;
+			
+			
+			var context=canvas.getContext('2d');
+			
+			var skyStyle=context.createRadialGradient(canvas.width/2,canvas.height,0,canvas.width/2,canvas.height,canvas.height);
+			skyStyle.addColorStop(0.0,'#035');
+			skyStyle.addColorStop(1.0,'black');
+			context.fillStyle=skyStyle;
+			context.fillRect(0,0,canvas.width,canvas.height);
+			
+			for (var i=0;i<200;i++) {
+				var r=Math.random()*5+5;
+				var x=Math.random()*canvas.width;
+				var y=Math.random()*canvas.height*0.65;
+				var a=Math.random()*360;
+				drawStar(context,r,x,y,a)
+			}
+			
+			
+			function drawStar(ext,r,x,y,rot){
+				ext.save();
+				ext.translate(x,y);//位移
+				ext.rotate(rot/180*Math.PI);//旋转
+				ext.scale(r,r);//缩放
+				
+				starPath(ext);
+				
+				ext.fillStyle='orange';
+				//ext.strokeStyle='yellow';
+				//ext.lineWidth=3;
+				//ext.lineJoin='round';
+				
+				ext.fill();
+				//ext.stroke();
+				
+				ext.restore();
+			}
+			function starPath(ext){
+				ext.beginPath();
+				for (var i=0;i<5;i++) {
+					ext.lineTo(Math.cos((18+i*72)/180*Math.PI),
+					 				-Math.sin((18+i*72)/180*Math.PI));
+					ext.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,
+					 				-Math.sin((54+i*72)/180*Math.PI)*0.5);
+				}
+				ext.closePath();
+			}
+			
+		</script>
+	</body>
+</html>
